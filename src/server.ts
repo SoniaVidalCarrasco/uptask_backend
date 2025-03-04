@@ -19,18 +19,4 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 
-app.get("/", (req, res) => {
-  res.send("API funcionando correctamente 🚀");
-});
-
-// Manejo de rutas no encontradas
-app.use((req, res) => {
-  res.status(404).json({ msg: "Ruta no encontrada" });
-});
-
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ msg: "Error del servidor" });
-});
-
 export default app;

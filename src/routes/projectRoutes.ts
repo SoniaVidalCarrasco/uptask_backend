@@ -17,6 +17,8 @@ const router = Router();
 
 router.use(authenticate);
 
+router.get("/", ProjectController.getAllProjects);
+
 router.post(
   "/",
   body("projectName")
@@ -31,8 +33,6 @@ router.post(
   handleInputErrors,
   ProjectController.createProject
 );
-
-router.get("/", ProjectController.getAllProjects);
 
 router.get(
   "/:id",
